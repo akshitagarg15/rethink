@@ -17,7 +17,7 @@ def contact(request):
         first=request.POST.get('firstName')
         last=request.POST.get('lastName')
         phone=request.POST.get('phone')
-        email_a=['akshitagarg275@gmail.com']
+        email_a=['gourav@rethinkux.com']
         c=Contact(firstName=first,lastName=last,email=email_r,phone=phone)
         subject = 'Thank you for visiting to our site'
         message = ' It  means a alot to us. We will get back to you within 12 hrs '
@@ -30,7 +30,7 @@ def contact(request):
         c.save()
         
         model=Contact.objects.all
-        template_name='app/table.html'
+        template_name='app/index.html'
         context={'model':model}
 
         return render(request,template_name,context)
@@ -40,9 +40,9 @@ def contact(request):
 
 def dashboard(request):
     
-    model=contact.objects.all
+    model=Contact.objects.all
     if model is not None:
-        template_name='mysite/table.html'
+        template_name='app/table.html'
         context={'model':model}
         return render(request,template_name,context)
     else:
