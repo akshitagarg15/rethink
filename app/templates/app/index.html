@@ -1,0 +1,16 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+<form action="{% url 'contact' %}" method="POST">
+    {% csrf_token %}
+
+<input type="text" name="firstName" id="" placeholder="First Name">
+<input type="text" name="lastName" id="" placeholder="Last Name">
+<input type="email" name="email" id="" placeholder="Your Work Email">
+<input type="tel" name="phone" id="" placeholder="Mobile Numbers">
+<input type="submit" value="submit">
+</form>
+
+
+{% endblock %}
